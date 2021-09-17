@@ -1,0 +1,1 @@
+python -u -m torch.distributed.launch --nproc_per_node=4 --use_env main.py run --with_clearml --with_amp --backend="nccl"
