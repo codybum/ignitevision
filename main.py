@@ -79,8 +79,8 @@ def training(local_rank, config):
     metrics = {
         "Accuracy": Accuracy(),
         "Loss": Loss(criterion),
-        "precision": Precision(),
-        "recall": Recall(),
+        "precision": Precision(average=True),
+        "recall": Recall(average=True),
 
     }
 
@@ -374,6 +374,8 @@ def create_evaluator(model, metrics, config, tag="val"):
     evaluator = Engine(evaluate_step)
 
     for name, metric in metrics.items():
+        print(metric)
+        print(type(metric))
         metric.attach(evaluator, name)
 
     if idist.get_rank() == 0 and (not config["with_clearml"]):
