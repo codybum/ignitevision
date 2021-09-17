@@ -79,9 +79,8 @@ def training(local_rank, config):
     metrics = {
         "Accuracy": Accuracy(),
         "Loss": Loss(criterion),
-        "precision": Precision(average=True),
-        "recall": Recall(average=True),
-
+        "precision": Precision(),
+        "recall": Recall(),
     }
 
     # We define two evaluators as they wont have exactly similar roles:
@@ -142,14 +141,14 @@ def run(
     seed=543,
     data_path="data",
     output_path="output",
-    model="resnet50",
+    model="resnet34",
     batch_size=32,
     momentum=0.9,
     weight_decay=1e-4,
     num_workers=multiprocessing.cpu_count(),
-    num_epochs=24,
-    learning_rate=0.0005,
-    num_warmup_epochs=4,
+    num_epochs=12,
+    learning_rate=0.00005,
+    num_warmup_epochs=3,
     validate_every=1,
     checkpoint_every=1000,
     backend=None,
