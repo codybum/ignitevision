@@ -142,7 +142,7 @@ def run(
     data_path="data",
     output_path="output",
     model="resnet50",
-    batch_size=384,
+    batch_size=512,
     momentum=0.9,
     weight_decay=1e-4,
     num_workers=multiprocessing.cpu_count(),
