@@ -142,7 +142,7 @@ def run(
     seed=543,
     data_path="data",
     output_path="output",
-    model="resnet152",
+    model="resnet50",
     batch_size=32,
     momentum=0.9,
     weight_decay=1e-4,
@@ -374,8 +374,6 @@ def create_evaluator(model, metrics, config, tag="val"):
     evaluator = Engine(evaluate_step)
 
     for name, metric in metrics.items():
-        print(metric)
-        print(type(metric))
         metric.attach(evaluator, name)
 
     if idist.get_rank() == 0 and (not config["with_clearml"]):
