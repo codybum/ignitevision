@@ -142,7 +142,7 @@ def run(
     data_path="data",
     output_path="output",
     #model="resnet101",
-    model="efficientnet_b7",
+    model="densenet161",
     batch_size=8,
     momentum=0.9,
     weight_decay=1e-4,
